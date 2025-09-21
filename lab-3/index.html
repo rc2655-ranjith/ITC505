@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ITC505 Lab 3 - Custom Font Example</title>
+
+    <!-- Step 1: Load the custom font using @font-face from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Press Start 2P', cursive;
+            background-color: #f0f8ff;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        h1 {
+            color: #ff1493;
+        }
+
+        p {
+            color: #333333;
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 0.8em;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Delivering Fonts to Browsers</h1>
+
+    <p>
+        To serve a font which the majority of your visitors do not already have on their machines, you can either                                  serve it directly out of your web server or load it out of a font hosting service. The most widespread way is the application of the rule of the @font-face in CSS. This is a command that instructs the browser to download the font and the name to be used when it is applied.
+    </p>
+
+    <p>
+        As an example, when I have a font file on my server, e.g. myfont.woff2, I can include a CSS rule like:
+
+    </p>
+
+    <pre>
+    @font-face {
+        font-family: 'My Custom Font';
+        src: url('fonts/myfont.woff2') format('woff2');
+    }
+    </pre>
+
+    <p>
+        Following this, I am able to style elements using font-family: 'My Custom Font'; The font will be automatically downloaded and applied in the browser, even in case the user does not have it on his/her computer. I have used the font Press start 2P on this page to demonstrate its functionality.
+    </p>
+
+    <footer>
+        <p>Last updated: 
+            <span id="lastModified"></span>
+        </p>
+    </footer>
+    <script type="text/javascript">
+         var x = document.lastModified;
+         document.getElementById('lastModified').textContent = x;
+    </script>
+</body>
+</html>
