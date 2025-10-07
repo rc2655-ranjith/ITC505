@@ -1,0 +1,71 @@
+/* ======== Base Page Styling ======== */
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  line-height: 1.7;
+  font-size: 16px;
+  margin: 40px auto;
+  max-width: 900px;
+  padding: 20px;
+}
+
+/* ======== Headings ======== */
+h1 {
+  font-size: 2.2em;
+  color: #1d3557;
+  border-bottom: 3px solid #457b9d;
+  padding-bottom: 10px;
+}
+
+h2 {
+  font-size: 1.6em;
+  color: #264653;
+  margin-top: 1.5em;
+  border-left: 5px solid #a8dadc;
+  padding-left: 10px;
+}
+
+h3 {
+  font-size: 1.3em;
+  color: #2a9d8f;
+  margin-top: 1em;
+}
+
+/* ======== Paragraphs and Lists ======== */
+p {
+  margin-bottom: 1em;
+}
+
+ol {
+  margin-left: 20px;
+}
+
+/* ======== Links ======== */
+a {
+  color: #0077b6;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #023e8a;
+}
+
+/* ======== Addendum Section ======== */
+#addendum {
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 40px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* ======== Footer ======== */
+footer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 0.9em;
+  color: #555;
+}
