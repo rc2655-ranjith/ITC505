@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 6 - Holy Grail Layout</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Lab 6 Page</h1>
+    </header>
+
+    <div class="container">
+        <nav class="sidebar">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+
+        <main class="content">
+            <h2>Interactive JavaScript Demo: Bubble Sort</h2>
+            <p>Enter numbers separated by commas:</p>
+            <input type="text" id="numberInput" placeholder="e.g. 5,3,8,1,4">
+            <button id="sortButton">Sort Numbers</button>
+            <p>Sorted Output: <span id="sortedOutput"></span></p>
+        </main>
+
+        <aside class="advertisement">
+            <a href="https://www.amazon.com/Sony-43-Inch-Exclusive-Features-PlayStation%C2%AE5/dp/B0CVNZ3C76/ref=sr_1_1?dib=eyJ2IjoiMSJ9.gfPotlWULTCb8HkqnR_P1KsBI4xcGHh41Z4lt9iQfYvPkBuCjndNfOum69-vrj3HmWXJ6QWJMdZLqesiDMtEghboBJ2f6qM8Yj3ZWVucVpM5-wBqhLBJbu5wZnJE75YzWIQiSUHCRTQUznPN2dD1uZSDUt03myPmkUmmgexdZr52zyjltvQhEIRKy21m6CbfRFFFEpKW-36_3tvFS5FaiDteIKXTIJH7YwguUcL_dq0.nAebsvQEfREy5GNlPSxkJ2YaKSXlwA7oi9w6iqoqKNA&dib_tag=se&keywords=sony%2Btv&qid=1761524202&sr=8-1&th=1" target="_blank">
+                <img src="https://images-na.ssl-images-amazon.com/images/I/71vR6S8N0FL._AC_SL1500_.jpg" alt="Sony 43-Inch BRAVIA 3 LED Smart TV">
+            </a>
+        </aside>
+    </div>
+
+    <footer>
+        <p>Last updated: 
+            <span id="lastModified"></span>
+        </p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script type="text/javascript">
+        var x = document.lastModified;
+        document.getElementById('lastModified').textContent = x;
+    </script>
+</body>
+</html>
