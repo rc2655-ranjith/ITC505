@@ -1,53 +1,71 @@
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f8f8f8;
-    color: #333;
-    text-align: center;
-    margin: 0;
-    padding: 0;
+  background: linear-gradient(to bottom, #fdfdfd, #d2e3fc);
+  color: #333;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
 }
 
 header {
-    background-color: #ff1c1c;
-    color: #fff;
-    padding: 20px;
-    font-size: 1.5em;
-    text-shadow: 1px 1px 3px #000;
+  background-color: #ff1c1c;
+  color: white;
+  padding: 20px;
+  text-shadow: 1px 1px 2px #3b4cca;
 }
 
 #story {
-    font-size: 1.2em;
-    margin: 30px auto;
-    width: 70%;
+  font-size: 1.2em;
+  margin: 30px auto;
+  width: 70%;
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
 #choices button {
-    background-color: #ffcb05;
-    border: 2px solid #3b4cca;
-    padding: 12px 20px;
-    margin: 10px;
-    font-size: 1em;
-    cursor: pointer;
-    border-radius: 8px;
-    color: #3b4cca;
-    font-weight: bold;
+  background-color: #3b4cca;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 #choices button:hover {
-    background-color: #3b4cca;
-    color: #fff;
+  background-color: #ffcc00;
+  color: #222;
 }
 
 #image-container img {
-    width: 320px;
-    height: auto;
-    margin-top: 20px;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  width: 300px;
+  height: auto;
+  margin-top: 20px;
+  border-radius: 10px;
 }
 
 footer {
-    margin-top: 40px;
-    font-size: 0.9em;
-    color: #3b4cca;
+  margin-top: 40px;
+  color: #3b4cca;
+  font-size: 0.9em;
+}
+
+#addendum {
+  background: #f7f7f7;
+  text-align: left;
+  margin: 40px auto;
+  padding: 20px;
+  width: 80%;
+  border-radius: 10px;
+  line-height: 1.6em;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+#addendum h2 {
+  color: #ff1c1c;
+  text-align: center;
 }
