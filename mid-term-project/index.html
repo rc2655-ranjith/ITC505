@@ -1,33 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokémon Adventure Quest</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokémon Adventure: Choose Your Own Journey</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Pokémon Adventure Quest</h1>
-    </header>
+  <header>
+    <h1>Pokémon Adventure: Choose Your Own Journey</h1>
+  </header>
 
-    <main>
-        <div id="story"></div>
-        <div id="choices"></div>
-        <div id="image-container">
-            <img id="story-image" src="" alt="Story image">
-        </div>
-    </main>
+  <main>
+    <div id="story"></div>
+    <div id="choices"></div>
+    <div id="image-container">
+      <img id="story-image" src="" alt="Story image">
+    </div>
+  </main>
 
-    <footer>
-        <p>Last updated: <span id="lastModified"></span></p>
-    </footer>
+  <footer>
+    <p>Last updated: <span id="lastModified"></span></p>
+  </footer>
 
-    <script type="text/javascript">
-        var x = document.lastModified;
-        document.getElementById('lastModified').textContent = x;
-    </script>
+  <script>
+    document.getElementById('lastModified').textContent = document.lastModified;
+  </script>
 
-    <script src="script.js"></script>
+  <script src="script.js"></script>
+
+  <section id="addendum">
+    <h2>Project Addendum – Pokémon Adventure: Choose Your Own Journey</h2>
+    <p><strong>Planning and Concept:</strong>  
+    The story follows a Pokémon-style adventure where the player starts with one of three starter Pokémon: Charmander, Squirtle, or Bulbasaur. Each choice creates a branching storyline with unique adventures and endings. A flowchart was drawn first to plan the paths and ensure all 8 endings were reachable.</p>
+
+    <p><strong>HTML Design:</strong>  
+    The HTML structure contains a title header, story container, choice buttons, and an image section. The “last modified” footer is embedded per project requirements. This structure supports DOM updates via JavaScript.</p>
+
+    <p><strong>CSS Styling:</strong>  
+    The CSS uses Pokémon-inspired colors—red, blue, and green—depending on the starter theme. Buttons have hover effects and rounded corners for a game-like aesthetic. The layout remains responsive and centered for readability.</p>
+
+    <p><strong>JavaScript Functionality:</strong>  
+    Each story node is defined as an object containing text, choices, and an image. The <code>showStoryPart()</code> function updates the DOM dynamically and renders new choices. Endings reset with a “Restart Adventure” button. This object-based system made it easy to debug and expand.</p>
+
+    <p><strong>Challenges:</strong>  
+    Story path logic occasionally broke due to incorrect object keys or commas, but using <code>console.log()</code> helped fix logic quickly. Another challenge was organizing images consistently for each story branch.</p>
+
+    <p><strong>Enhancements:</strong>  
+    Added a flowchart page and hover transitions. The color palette matches the Pokémon theme. The project can be further improved with sound or animations in future versions.</p>
+
+    <p><strong>Insights Gained:</strong>  
+    I learned how to manage branching logic with JavaScript objects, dynamically manipulate DOM elements, and improve debugging using browser tools. It taught me both creative storytelling and practical front-end logic.</p>
+
+    <p><strong>Conclusion:</strong>  
+    This Pokémon adventure project fulfills the mid-term objectives by combining HTML, CSS, and JavaScript to create an interactive web experience with 8 unique endings. It demonstrates interactivity, design, and problem-solving.</p>
+  </section>
 </body>
 </html>
