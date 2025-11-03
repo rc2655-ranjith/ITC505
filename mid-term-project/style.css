@@ -1,0 +1,53 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #ff1c1c;
+    color: #fff;
+    padding: 20px;
+    font-size: 1.5em;
+    text-shadow: 1px 1px 3px #000;
+}
+
+#story {
+    font-size: 1.2em;
+    margin: 30px auto;
+    width: 70%;
+}
+
+#choices button {
+    background-color: #ffcb05;
+    border: 2px solid #3b4cca;
+    padding: 12px 20px;
+    margin: 10px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 8px;
+    color: #3b4cca;
+    font-weight: bold;
+}
+
+#choices button:hover {
+    background-color: #3b4cca;
+    color: #fff;
+}
+
+#image-container img {
+    width: 320px;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+footer {
+    margin-top: 40px;
+    font-size: 0.9em;
+    color: #3b4cca;
+}
