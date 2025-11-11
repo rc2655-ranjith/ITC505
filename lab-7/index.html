@@ -110,6 +110,22 @@
         padding: 20px;
       }
     }
+
+    #addendum {
+      max-width: 700px;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      margin-top: 40px;
+      line-height: 1.6;
+    }
+
+    #addendum h2 {
+      color: #0077b6;
+      margin-bottom: 10px;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -141,6 +157,27 @@
       <span id="lastModified"></span>
     </p>
   </footer>
+
+  <section id="addendum">
+    <h2>Addendum</h2>
+    <p>
+      For this Mad Lib project, I created an interactive and colorful webpage that generates a fun story using user-provided words.
+      The form includes five input fields: name, adjective, plural noun, verb, and place. When the user submits the form, a
+      JavaScript function captures the input values, dynamically constructs a story, and displays it instantly on the same page
+      without reloading. This enhances the user experience and makes the page more engaging.
+    </p>
+    <p>
+      The page design uses a soft blue gradient background to keep the appearance simple yet appealing. Rounded input boxes and
+      smooth animations were added for a friendly and modern look. I also included responsive design features to ensure it works
+      well on mobile devices.
+    </p>
+    <p>
+      While the original lab required ExpressJS for POST handling, GitHub Pages does not support backend code. To address this,
+      I converted the functionality to a client-side solution using JavaScript’s event handling and DOM manipulation. This approach
+      maintains the same interactivity while being compatible with static hosting. The “Last Modified” footer script automatically
+      displays the update time as required by the lab instructions.
+    </p>
+  </section>
 
   <script>
     // Display last modified date
