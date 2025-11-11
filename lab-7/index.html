@@ -73,6 +73,25 @@
       background-color: #0077b6;
     }
 
+    #story {
+      margin-top: 25px;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      width: 350px;
+      text-align: center;
+      font-style: italic;
+      color: #023e8a;
+      display: none;
+      animation: fadeIn 0.6s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     footer {
       margin-top: 25px;
       text-align: center;
@@ -86,7 +105,7 @@
     }
 
     @media (max-width: 400px) {
-      form {
+      form, #story {
         width: 90%;
         padding: 20px;
       }
@@ -96,7 +115,7 @@
 <body>
   <h1>🌈 Fun Mad Lib Generator 🌈</h1>
   
-  <form action="/ITC505/lab-7/index.html" method="POST">
+  <form id="madlibForm">
     <label for="name">Enter a Name:</label>
     <input type="text" id="name" name="name" placeholder="e.g. Ranjith" required>
 
@@ -115,14 +134,37 @@
     <button type="submit">✨ Create My Story ✨</button>
   </form>
 
+  <div id="story"></div>
+
   <footer>
     <p>Last updated: 
       <span id="lastModified"></span>
     </p>
   </footer>
 
-  <script type="text/javascript">
+  <script>
+    // Display last modified date
     document.getElementById('lastModified').textContent = document.lastModified;
+
+    // Handle form submission
+    document.getElementById('madlibForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // prevent page reload
+
+      const name = document.getElementById('name').value;
+      const adjective = document.getElementById('adjective').value;
+      const pluralNoun = document.getElementById('pluralNoun').value;
+      const verb = document.getElementById('verb').value;
+      const place = document.getElementById('place').value;
+
+      const story = `Once upon a time, ${name} went to ${place} and saw ${pluralNoun}. 
+      Feeling ${adjective}, ${name} decided to ${verb} with them. 
+      What an unforgettable day it was!`;
+
+      const storyDiv = document.getElementById('story');
+      storyDiv.textContent = story;
+      storyDiv.style.display = 'block';
+      storyDiv.scrollIntoView({ behavior: 'smooth' });
+    });
   </script>
 </body>
 </html>
