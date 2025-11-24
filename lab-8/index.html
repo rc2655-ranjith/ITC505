@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 8 - Secure Input Validation</title>
+
+    <style>
+        /* ======== PAGE BACKGROUND COLOR ======== */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 40px;
+            background: #f0f4f8; /* Light calm blue-gray background */
+            line-height: 1.6;
+        }
+
+        h2 {
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        /* ======== FORM BOX ======== */
+        form {
+            max-width: 420px;
+            margin: auto;
+            border: 1px solid #ccc;
+            border-radius: 14px;
+            padding: 25px;
+            background: #ffffff; /* White form background */
+            box-shadow: 0px 0px 12px rgba(0,0,0,0.15);
+        }
+
+        /* ======== LABELS ======== */
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        /* ======== INPUT FIELDS ======== */
+        input {
+            width: 100%;
+            padding: 10px;
+            font-size: 15px;
+            border-radius: 8px;
+            border: 1px solid #bbb;
+            outline: none;
+            transition: 0.2s;
+            background: #fdfdfd;
+        }
+
+        input:focus {
+            border-color: #0077cc;
+            box-shadow: 0px 0px 5px rgba(0, 119, 204, 0.4);
+            background: #ffffff;
+        }
+
+        /* ======== SUBMIT BUTTON ======== */
+        button {
+            margin-top: 25px;
+            padding: 12px;
+            width: 100%;
+            border: none;
+            border-radius: 10px;
+            background: #0077cc;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.25s;
+        }
+
+        button:hover {
+            background: #005fa3;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Secure Registration Form</h2>
+
+<form id="regForm" onsubmit="return validateForm();">
+    <label>First Name</label>
+    <input type="text" id="fname">
+
+    <label>Last Name</label>
+    <input type="text" id="lname">
+
+    <label>Email</label>
+    <input type="text" id="email">
+
+    <label>Password</label>
+    <input type="password" id="password">
+
+    <label>Confirm Password</label>
+    <input type="password" id="confirmPassword">
+
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+    // ========== BASIC XSS SANITIZER ==========
+    function sanitize(input) {
+        return input.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+
+    // ========== EMAIL FORMAT VALIDATION ==========
+    function validateEmail(email) {
+        const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return pattern.test(email);
+    }
+
+    // ========== MAIN FORM VALIDATION ==========
+    function validateForm() {
+        const fname = sanitize(document.getElementById("fname").value.trim());
+        const lname = sanitize(document.getElementById("lname").value.trim());
+        const email = sanitize(document.getElementById("email").value.trim());
+        const pass = document.getElementById("password").value;
+        const cpass = document.getElementById("confirmPassword").value;
+
+        if (!fname || !lname || !email || !pass || !cpass) {
+            alert("All fields are required.");
+            return false;
+        }
+
+        if (!validateEmail(email)) {
+            alert("Enter a valid email address.");
+            return false;
+        }
+
+        if (pass !== cpass) {
+            alert("Passwords do not match.");
+            return false;
+        }
+
+        alert("Form submitted successfully!");
+        return true;
+    }
+</script>
+
+</body>
+</html>
