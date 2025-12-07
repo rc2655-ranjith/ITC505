@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Revenge of Lights Out</title>
 
-  <!-- Font craziness: two contrasting Google Fonts -->
+  <!-- Font craziness -->
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Comic+Neue:wght@300;700&display=swap" rel="stylesheet">
 
   <style>
@@ -31,63 +31,61 @@
     }
 
     .container{
-      width: max-content;
+      width:max-content;
       text-align:center;
     }
 
     h1{
-      margin:0 0 12px 0;
-      font-family: "Press Start 2P", monospace;
+      margin:0 0 12px;
+      font-family:"Press Start 2P", monospace;
       letter-spacing:1px;
       font-size:18px;
       color:var(--accent);
-      text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+      text-shadow:0 2px 6px rgba(0,0,0,0.6);
     }
 
     .subtitle{
-      margin:8px 0 18px 0;
+      margin:8px 0 18px;
       opacity:0.9;
       font-size:13px;
     }
 
     .board{
       display:grid;
-      grid-template-columns: repeat(5, var(--tile-size));
-      gap: var(--gap);
-      background: rgba(255,255,255,0.02);
-      padding: 18px;
-      border-radius: 12px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
-      margin-bottom: 14px;
+      grid-template-columns:repeat(5, var(--tile-size));
+      gap:var(--gap);
+      background:rgba(255,255,255,0.02);
+      padding:18px;
+      border-radius:12px;
+      box-shadow:0 8px 30px rgba(0,0,0,0.6);
+      margin-bottom:14px;
     }
 
     .cell{
-      width: var(--tile-size);
-      height: var(--tile-size);
-      border-radius: 8px;
+      width:var(--tile-size);
+      height:var(--tile-size);
+      border-radius:8px;
       display:flex;
       align-items:center;
       justify-content:center;
       cursor:pointer;
       user-select:none;
-      transition: transform 120ms ease, box-shadow 120ms ease;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.6), inset 0 -6px 12px rgba(0,0,0,0.3);
-      font-family: "Press Start 2P", monospace;
-      font-size: 10px;
+      transition:transform 120ms ease, box-shadow 120ms ease;
+      box-shadow:0 4px 10px rgba(0,0,0,0.6), inset 0 -6px 12px rgba(0,0,0,0.3);
+      font-family:"Press Start 2P", monospace;
+      font-size:10px;
     }
 
-    /* When ON = light tile (white) */
     .cell.is-on{
-      background: var(--tile-on);
-      color: #111;
-      transform: translateY(-4px);
-      box-shadow: 0 10px 30px rgba(255,255,255,0.08), 0 1px 0 rgba(0,0,0,0.2);
+      background:var(--tile-on);
+      color:#111;
+      transform:translateY(-4px);
+      box-shadow:0 10px 30px rgba(255,255,255,0.08), 0 1px 0 rgba(0,0,0,0.2);
     }
 
-    /* When OFF = dark tile (black) */
     .cell.is-off{
-      background: var(--tile-off);
-      color: #fff;
+      background:var(--tile-off);
+      color:#fff;
     }
 
     .controls{
@@ -100,17 +98,18 @@
     button{
       background:transparent;
       border:2px solid rgba(255,255,255,0.08);
-      color: #fff;
+      color:#fff;
       padding:8px 12px;
       border-radius:8px;
       cursor:pointer;
       font-weight:700;
       letter-spacing:0.6px;
     }
+
     button.primary{
-      border-color: var(--accent);
-      background: linear-gradient(90deg, rgba(255,184,107,0.12), rgba(255,184,107,0.04));
-      color: var(--accent);
+      border-color:var(--accent);
+      background:linear-gradient(90deg,rgba(255,184,107,0.12),rgba(255,184,107,0.04));
+      color:var(--accent);
     }
 
     .footer-note{
@@ -119,9 +118,8 @@
       opacity:0.8;
     }
 
-    /* small responsive */
     @media (max-width:520px){
-      :root{ --tile-size: 46px; --gap:6px }
+      :root{ --tile-size:46px; --gap:6px }
       h1{ font-size:14px }
     }
   </style>
@@ -130,32 +128,46 @@
 <body>
   <div class="container">
     <h1>Revenge of Lights Out</h1>
-    <div class="subtitle">Click a tile to toggle it and its neighbors. Turn all tiles ON to win.</div>
+    <div class="subtitle">Click tiles to toggle them and their neighbors. Turn all tiles ON to win.</div>
 
-    <div class="controls" role="region" aria-label="game controls">
+    <div class="controls">
       <button id="newBtn" class="primary">New puzzle</button>
-      <button id="resetBtn">Reset (to start)</button>
+      <button id="resetBtn">Reset</button>
       <button id="solveBtn">Show solution</button>
     </div>
 
-    <div id="board" class="board" role="grid" aria-label="Lights Out board"></div>
+    <div id="board" class="board"></div>
 
-    <div class="footer-note">Tip: each "New puzzle" is guaranteed solvable.</div>
+    <div class="footer-note">Each new puzzle is guaranteed solvable.</div>
   </div>
 
-  <!-- Required footer & lastModified script (place before </body>) -->
-  <footer>
+  <!-- FOOTER WITH ADDENDUM (REQUIRED SCRIPT INCLUDED) -->
+  <footer style="margin-top:30px; text-align:center; max-width:700px; color:#ddd;">
       <p>Last updated:
           <span id="lastModified"></span>
       </p>
+
+      <section id="addendum" style="margin-top:14px; font-size:14px; line-height:1.5; background:rgba(255,255,255,0.03); padding:14px; border-radius:10px;">
+          <h3 style="margin:0 0 8px; font-size:18px; color:#ffb86b;">Addendum</h3>
+
+          <p><strong>Process & Approach:</strong> This Lights Out game was built using HTML, CSS Grid, and JavaScript. Each tile is interactive using event listeners and toggles itself plus its neighbors.</p>
+
+          <p><strong>Solvable Randomization:</strong> To ensure every puzzle is solvable, I began with a solved (all-ON) board and applied random valid toggles. Since toggles are self-inverse, reversing the same moves produces the solution.</p>
+
+          <p><strong>Creative Choices:</strong> I incorporated two Google Fonts (“Press Start 2P” and “Comic Neue”) to meet the font-craziness requirement. The board uses a dark sci-fi theme, animated tiles, and a glowing design for better visual feedback.</p>
+
+          <p><strong>Challenges:</strong> The main challenge was generating solvable puzzles. Simulating random moves from the solved state was the simplest correct method. Tracking these moves also made it possible to animate the solution visualization.</p>
+
+          <p><strong>Insights:</strong> Treating tile toggling as a reversible operation simplifies puzzle logic. Random toggling directly from the solved board is a reliable and elegant method to guarantee solvability.</p>
+      </section>
   </footer>
+
   <script type="text/javascript">
        var x = document.lastModified;
        document.getElementById('lastModified').textContent = x;
   </script>
 
   <script>
-  // Lights Out implementation (5x5)
   (function () {
     const ROWS = 5, COLS = 5;
     const boardEl = document.getElementById('board');
@@ -163,9 +175,9 @@
     const resetBtn = document.getElementById('resetBtn');
     const solveBtn = document.getElementById('solveBtn');
 
-    // internal state: array of booleans (true = ON/light)
-    let state = Array(ROWS*COLS).fill(true); // we'll consider true = ON (light)
+    let state = Array(ROWS*COLS).fill(true);
     let startState = null;
+    let lastMoves = null;
 
     function idx(r,c){ return r*COLS + c; }
     function inBounds(r,c){ return r>=0 && c>=0 && r<ROWS && c<COLS; }
@@ -176,8 +188,6 @@
         for(let c=0;c<COLS;c++){
           const cell = document.createElement('div');
           cell.className = 'cell';
-          cell.setAttribute('role','button');
-          cell.setAttribute('aria-label', `tile ${r+1}, ${c+1}`);
           cell.dataset.r = r;
           cell.dataset.c = c;
           cell.addEventListener('click', () => {
@@ -190,7 +200,6 @@
       }
     }
 
-    // Toggle a tile and its orthogonal neighbors
     function toggleAt(r,c){
       const positions = [[r,c],[r-1,c],[r+1,c],[r,c-1],[r,c+1]];
       positions.forEach(([rr,cc])=>{
@@ -201,47 +210,36 @@
       });
     }
 
-    // render board DOM from state
     function render(){
       const cells = boardEl.children;
       for(let r=0;r<ROWS;r++){
         for(let c=0;c<COLS;c++){
           const i = idx(r,c);
           const el = cells[i];
-          // we define "is-on" when state[i] === true
           if(state[i]){
             el.classList.add('is-on');
             el.classList.remove('is-off');
-            el.textContent = '';
           } else {
             el.classList.add('is-off');
             el.classList.remove('is-on');
-            el.textContent = '';
           }
         }
       }
     }
 
-    // Check if all tiles are ON (win condition)
     function checkWin(){
-      const allOn = state.every(v => v === true);
-      if(allOn){
-        // win popup
-        window.alert('You win!');
+      if(state.every(v => v === true)){
+        window.alert("You win!");
       }
     }
 
-    // reset to the starting puzzle state (startState captured after generating puzzle)
     function resetToStart(){
       if(startState) state = startState.slice();
       render();
     }
 
-    // generate a random solvable puzzle by starting from all-ON and applying random legal moves
     function generateSolvable(randomMoves = 30){
-      // start with all ON (solved state)
       state = Array(ROWS*COLS).fill(true);
-      // We'll record the moves we perform so we can optionally show solution
       const moves = [];
       for(let k=0;k<randomMoves;k++){
         const r = Math.floor(Math.random()*ROWS);
@@ -249,19 +247,11 @@
         toggleAt(r,c);
         moves.push([r,c]);
       }
-      // capture puzzle start (so Reset returns to it)
       startState = state.slice();
       return moves;
     }
 
-    // Optionally compute solution by reversing the random moves we performed when generating
-    // NOTE: since toggling is its own inverse, toggling same sequence again solves.
     function showSolution(moves){
-      if(!moves || !moves.length){
-        alert('No recorded moves to show.');
-        return;
-      }
-      // animate reversing moves to solve
       let i = moves.length - 1;
       const interval = setInterval(()=>{
         const [r,c] = moves[i];
@@ -275,28 +265,20 @@
       }, 140);
     }
 
-    // Setup buttons
-    let lastMoves = null;
     newBtn.addEventListener('click', () => {
-      lastMoves = generateSolvable( Math.floor(20 + Math.random()*36) ); // between 20 and 55 moves
+      lastMoves = generateSolvable(30 + Math.floor(Math.random()*20));
       render();
     });
 
-    resetBtn.addEventListener('click', () => {
-      resetToStart();
-    });
+    resetBtn.addEventListener('click', resetToStart);
 
     solveBtn.addEventListener('click', () => {
-      if(!lastMoves || lastMoves.length===0) {
-        alert('Press "New puzzle" first to generate a puzzle (so there is a recorded solution).');
-        return;
-      }
+      if(!lastMoves) return alert("Generate a puzzle first!");
       showSolution(lastMoves);
     });
 
-    // initialize page: create board and generate initial puzzle
     createBoard();
-    lastMoves = generateSolvable( Math.floor(30 + Math.random()*36) );
+    lastMoves = generateSolvable(40);
     render();
 
   })();
